@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AutoMapper;
+using DigiOffers.Model.DTO;
+using DigiOffers.Model.Entities;
 
 namespace DigiOffers.Web
 {
@@ -16,6 +19,10 @@ namespace DigiOffers.Web
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+			Mapper.Initialize(cfg => {
+				cfg.CreateMap<Offer, OfferDto>();
+			});
 		}
 	}
 }

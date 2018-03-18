@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\ClientDto.cs" />
+    <Compile Include="DTO\OfferDto.cs" />
+    <Compile Include="DTO\OfferItemDto.cs" />
+    <Compile Include="DTO\OfferNoteDto.cs" />
+    <Compile Include="DTO\OfferSectionDto.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Log.cs" />
@@ -50,8 +55,6 @@
     <Compile Include="Entities\OfferSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

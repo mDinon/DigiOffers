@@ -31,9 +31,7 @@ namespace DigiOffers.Web
 						"~/Scripts/cldr/event.js",
 						"~/Scripts/cldr/supplemental.js",
 						"~/Scripts/globalize.js",
-						"~/Scripts/globalize/number.js"
-));
-
+						"~/Scripts/globalize/number.js"));
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 						"~/Content/bootstrap.css",

@@ -13,6 +13,7 @@ namespace DigiOffers.Web.App_Start
 	using DAL;
 	using DAL.Repository;
 	using Ninject.Web.Common.WebHost;
+	using AutoMapper;
 
 	public static class NinjectWebCommon
 	{
@@ -69,23 +70,23 @@ namespace DigiOffers.Web.App_Start
 			.InRequestScope();
 
 			kernel.Bind<IClientRepository>()
-				.ToSelf()
+				.To<ClientRepository>()
 				.InRequestScope();
 
 			kernel.Bind<IOfferRepository>()
-				.ToSelf()
+				.To<OfferRepository>()
 				.InRequestScope();
 
 			kernel.Bind<IOfferItemRepository>()
-				.ToSelf()
+				.To<OfferItemRepository>()
 				.InRequestScope();
 
 			kernel.Bind<IOfferNoteRepository>()
-				.ToSelf()
+				.To<OfferNoteRepository>()
 				.InRequestScope();
 
 			kernel.Bind<IOfferSectionRepository>()
-				.ToSelf()
+				.To<OfferSectionRepository>()
 				.InRequestScope();
 		}
 	}
