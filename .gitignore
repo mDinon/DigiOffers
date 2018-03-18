@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/packages
+/.vs
+/DigiOffers.Web/App_Data/DigiOfferDb_log.ldf
+/DigiOffers.Web/App_Data/DigiOfferDb.mdf
+/DigiOffers.DAL/bin/Debug
+/DigiOffers.DAL/obj/Debug
+/DigiOffers.Model/bin/Debug
+/DigiOffers.Model/obj/Debug
+/DigiOffers.Tests/bin/Debug
+/DigiOffers.Tests/obj/Debug
+/DigiOffers.Web/bin
+/DigiOffers.Web/obj/Debug
+/DigiOffers.Web/DigiOffers.Web.csproj.user
