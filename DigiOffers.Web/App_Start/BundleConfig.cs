@@ -20,12 +20,25 @@ namespace DigiOffers.Web
 						"~/Scripts/modernizr-*"));
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-					  "~/Scripts/bootstrap.js",
-					  "~/Scripts/respond.js"));
+						"~/Scripts/bootstrap.js",
+						"~/Scripts/respond.js",
+						"~/Scripts/moment.js",
+						"~/Scripts/moment-with-locales.js",
+						"~/Scripts/bootstrap-datetimepicker.js"));
+
+			bundles.Add(new ScriptBundle("~/bundles/globalize").Include(
+						"~/Scripts/cldr.js",
+						"~/Scripts/cldr/event.js",
+						"~/Scripts/cldr/supplemental.js",
+						"~/Scripts/globalize.js",
+						"~/Scripts/globalize/number.js"
+));
+
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
-					  "~/Content/bootstrap.css",
-					  "~/Content/site.css"));
+						"~/Content/bootstrap.css",
+						"~/Content/bootstrap-datetimepicker.css",
+						"~/Content/site.css"));
 		}
 	}
 }
