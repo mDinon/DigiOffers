@@ -111,7 +111,7 @@ namespace DigiOffers.DAL.Migrations
             DropIndex("dbo.OfferSections", new[] { "OfferID" });
             DropIndex("dbo.OfferNotes", new[] { "OfferID" });
             DropIndex("dbo.Offers", new[] { "ClientID" });
-            DropTable("dbo.Logs");
+            DropTable("dbo.Log");
             DropTable("dbo.OfferItems");
             DropTable("dbo.OfferSections");
             DropTable("dbo.OfferNotes");

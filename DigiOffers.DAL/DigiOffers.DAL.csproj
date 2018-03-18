@@ -48,13 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DigiOfferDbContext.cs" />
-    <Compile Include="Migrations\201803171507415_Initial.cs" />
-    <Compile Include="Migrations\201803171507415_Initial.Designer.cs">
-      <DependentUpon>201803171507415_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803171511217_LogRename.cs" />
-    <Compile Include="Migrations\201803171511217_LogRename.Designer.cs">
-      <DependentUpon>201803171511217_LogRename.cs</DependentUpon>
+    <Compile Include="Migrations\201803181437130_Initial.cs" />
+    <Compile Include="Migrations\201803181437130_Initial.Designer.cs">
+      <DependentUpon>201803181437130_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,11 +78,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803171507415_Initial.resx">
-      <DependentUpon>201803171507415_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803171511217_LogRename.resx">
-      <DependentUpon>201803171511217_LogRename.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803181437130_Initial.resx">
+      <DependentUpon>201803181437130_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
