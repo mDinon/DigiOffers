@@ -300,6 +300,10 @@
       <Project>{32fdc74c-9994-4d6a-aea5-0a11ea7bc885}</Project>
       <Name>DigiOffers.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DigiOffers.Service\DigiOffers.Service.csproj">
+      <Project>{d518c5cf-4412-4c48-869f-64ba09f67f84}</Project>
+      <Name>DigiOffers.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

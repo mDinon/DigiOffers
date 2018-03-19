@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiOffers.Model", "DigiOff
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiOffers.DAL", "DigiOffers.DAL\DigiOffers.DAL.csproj", "{0F663AF2-2083-4FA2-A98C-CFEE29A8273C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiOffers.Service", "DigiOffers.Service\DigiOffers.Service.csproj", "{D518C5CF-4412-4C48-869F-64BA09F67F84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0F663AF2-2083-4FA2-A98C-CFEE29A8273C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F663AF2-2083-4FA2-A98C-CFEE29A8273C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F663AF2-2083-4FA2-A98C-CFEE29A8273C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D518C5CF-4412-4C48-869F-64BA09F67F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D518C5CF-4412-4C48-869F-64BA09F67F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D518C5CF-4412-4C48-869F-64BA09F67F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D518C5CF-4412-4C48-869F-64BA09F67F84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -28,7 +28,7 @@ namespace DigiOffers.DAL.Repository
 			}
 			catch (Exception ex)
 			{
-				//TODO: handle and log exception
+				LogException(ex);
 			}
 		}
 

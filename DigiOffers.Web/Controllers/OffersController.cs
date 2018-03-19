@@ -11,6 +11,7 @@ using DigiOffers.DAL;
 using DigiOffers.DAL.Repository;
 using DigiOffers.Model.DTO;
 using DigiOffers.Model.Entities;
+using DigiOffers.Service;
 using Ninject;
 
 namespace DigiOffers.Web.Controllers
@@ -18,37 +19,31 @@ namespace DigiOffers.Web.Controllers
 	public class OffersController : Controller
 	{
 		[Inject]
-		private IOfferRepository _offerRepository { get; set; }
+		private readonly OfferService _offerService;
 
-		public OffersController(IOfferRepository offerRepository)
+		public OffersController(OfferService offerService)
 		{
-			_offerRepository = offerRepository;
+			_offerService = offerService;
 		}
 
 		// GET: Offers
 		public ActionResult Index()
 		{
-			List<Offer> offers = _offerRepository.GetList();
-			
-			List<OfferDto> test = Mapper.Map<List<Offer>, List<OfferDto>>(offers);
-
-
-			return View(Mapper.Map<List<Offer>, List<OfferDto>>(offers));
+			return View(_offerService.GetOffers());
 		}
 
 		// GET: Offers/Details/5
 		public ActionResult Details(int? id)
 		{
 			if (id == null)
-			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			}
-			Offer offer = _offerRepository.Find(id.Value);
+
+			OfferDto offer = _offerService.FindOffer(id.Value);
+
 			if (offer == null)
-			{
 				return HttpNotFound();
-			}
-			return View(Mapper.Map<Offer,OfferDto>(offer));
+
+			return View(offer);
 		}
 
 		// GET: Offers/Create
@@ -62,31 +57,32 @@ namespace DigiOffers.Web.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create([Bind(Include = "ID,ClientID,ClientFirstName,ClientLastName,DeliveryDate")] OfferDto offerDTO)
+		public ActionResult Create(OfferDto offerDto)
 		{
-			if (ModelState.IsValid)
+			bool isOk = TryUpdateModel(offerDto);
+
+			if (isOk && ModelState.IsValid)
 			{
-				//db.OfferDTOes.Add(offerDTO);
-				//db.SaveChanges();
+				_offerService.AddOffer(offerDto);
+
 				return RedirectToAction("Index");
 			}
 
-			return View(offerDTO);
+			return View(offerDto);
 		}
 
 		// GET: Offers/Edit/5
 		public ActionResult Edit(int? id)
 		{
 			if (id == null)
-			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			}
-			Offer offer = _offerRepository.Find(id.Value);
+
+			OfferDto offer = _offerService.FindOffer(id.Value);
+
 			if (offer == null)
-			{
 				return HttpNotFound();
-			}
-			return View(Mapper.Map<Offer, OfferDto>(offer));
+
+			return View(offer);
 		}
 
 		// POST: Offers/Edit/5
@@ -94,30 +90,31 @@ namespace DigiOffers.Web.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit([Bind(Include = "ID,Active,DateCreated,ClientID,ClientFirstName,ClientLastName,DeliveryDate")] OfferDto offerDTO)
+		public ActionResult Edit(OfferDto offerDto)
 		{
-			if (ModelState.IsValid)
+			bool isOk = TryValidateModel(offerDto);
+
+			if (isOk && ModelState.IsValid)
 			{
-				//db.Entry(offerDTO).State = EntityState.Modified;
-				//db.SaveChanges();
+				_offerService.UpdateOffer(offerDto);
+
 				return RedirectToAction("Index");
 			}
-			return View(offerDTO);
+			return View(offerDto);
 		}
 
 		// GET: Offers/Delete/5
 		public ActionResult Delete(int? id)
 		{
 			if (id == null)
-			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			}
-			Offer offer = _offerRepository.Find(id.Value);
+
+			OfferDto offer = _offerService.FindOffer(id.Value);
+
 			if (offer == null)
-			{
 				return HttpNotFound();
-			}
-			return View(Mapper.Map<Offer, OfferDto>(offer));
+
+			return View(offer);
 		}
 
 		// POST: Offers/Delete/5
@@ -125,9 +122,9 @@ namespace DigiOffers.Web.Controllers
 		[ValidateAntiForgeryToken]
 		public ActionResult DeleteConfirmed(int id)
 		{
-			//OfferDto offerDTO = db.OfferDTOes.Find(id);
-			//db.OfferDTOes.Remove(offerDTO);
-			//db.SaveChanges();
+			OfferDto offerDto = _offerService.FindOffer(id);
+			_offerService.DeleteOffer(offerDto);
+
 			return RedirectToAction("Index");
 		}
 	}

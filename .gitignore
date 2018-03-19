@@ -15,3 +15,5 @@
 /DigiOffers.Web/bin
 /DigiOffers.Web/obj/Debug
 /DigiOffers.Web/DigiOffers.Web.csproj.user
+/DigiOffers.Service/bin/Debug
+/DigiOffers.Service/obj/Debug
