@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DigiOffers.Model.DTO
 {
@@ -12,6 +7,7 @@ namespace DigiOffers.Model.DTO
 		public int ID { get; set; }
 		public bool Active { get; set; }
 		[Required]
+		[Display(Name = "Napomena")]
 		public string Note { get; set; }
 		[Required]
 		public int OfferID { get; set; }

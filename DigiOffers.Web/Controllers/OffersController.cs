@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
-using AutoMapper;
-using DigiOffers.DAL;
-using DigiOffers.DAL.Repository;
 using DigiOffers.Model.DTO;
-using DigiOffers.Model.Entities;
 using DigiOffers.Service;
 using Ninject;
 

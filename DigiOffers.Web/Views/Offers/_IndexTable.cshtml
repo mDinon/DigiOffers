@@ -3,23 +3,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Active)
+            @Html.DisplayNameFor(model => model.ClientFullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Heading)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateCreated)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientFirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientLastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeliveryDate)
-        </th>
+        <th></th>
+        <th></th>
         <th></th>
     </tr>
 
@@ -27,27 +20,22 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Active)
+                @Html.ActionLink(item.ClientFullName, "Edit", new { id = item.ID }, new { @class = "text-info" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Heading)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateCreated)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientID)
+            <td style="max-width:5px!important">
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-pencil text-info" })
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientFirstName)
+            <td style="max-width:5px!important">
+                @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "glyphicon glyphicon-list-alt text-info" })
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientLastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveryDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            <td style="max-width:5px!important">
+                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash text-info" })
             </td>
         </tr>
     }

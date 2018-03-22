@@ -58,6 +58,7 @@ namespace DigiOffers.DAL.Repository
 		{
 			model.DateModified = DateTime.Now;
 
+			DbContext.Set<TEntity>().Attach(model);
 			DbContext.Entry(model).State = EntityState.Modified;
 
 			Save();

@@ -22,3 +22,31 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.panel-info {
+	border-color: #033c73!important;
+}
+
+.panel-warning {
+	border-color: #dd5600 !important;
+}
+
+.panel-success {
+	border-color: #73a839 !important;
+}
+
+.panel-danger {
+	border-color: #c71c22 !important;
+}
+
+.panel-primary {
+	border-color: #2fa4e7 !important;
+}
+
+.panel[aria-expanded=true] .glyphicon-chevron-right {
+	display: none;
+}
+
+.panel[aria-expanded=false] .glyphicon-chevron-down {
+	display: none;
+}

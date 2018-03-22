@@ -13,6 +13,7 @@ namespace DigiOffers.DAL.Repository
 		public List<OfferNote> GetList()
 		{
 			return DbContext.OfferNotes
+				.Where(x => x.Active)
 				.OrderByDescending(x => x.ID)
 				.ToList();
 		}
@@ -20,7 +21,7 @@ namespace DigiOffers.DAL.Repository
 		public override OfferNote Find(int id)
 		{
 			return DbContext.OfferNotes
-				.Where(x => x.ID == id)
+				.Where(x => x.ID == id && x.Active)
 				.FirstOrDefault();
 		}
 	}

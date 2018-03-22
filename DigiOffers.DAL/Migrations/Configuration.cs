@@ -24,9 +24,9 @@ namespace DigiOffers.DAL.Migrations
 				new Model.Entities.Client() { Active = true, DateCreated = new DateTime(2018, 1, 18), Email = "mail.mail@mail.com", FirstName = "Iva", LastName = "Iviæ", ID = 2, PhoneNumber = "0915487678", Sex = "M" });
 
 			context.Offers.AddOrUpdate(x => x.ID,
-				new Model.Entities.Offer() { ID = 1, Active = true, ClientID = 1, DateCreated = new DateTime(2018, 3, 18), DeliveryDate = new DateTime(2018, 3, 18) },
-				new Model.Entities.Offer() { ID = 2, Active = true, ClientID = 2, DateCreated = new DateTime(2018, 1, 18), DeliveryDate = new DateTime(2018, 3, 18) },
-				new Model.Entities.Offer() { ID = 3, Active = true, ClientID = 1, DateCreated = new DateTime(2018, 3, 18), DeliveryDate = new DateTime(2018, 5, 18) });
+				new Model.Entities.Offer() { ID = 1, Active = true, Heading = "Ponuda 1", ClientID = 1, DateCreated = new DateTime(2018, 3, 18), DeliveryDate = new DateTime(2018, 3, 18) },
+				new Model.Entities.Offer() { ID = 2, Active = true, Heading = "Ponuda 2", ClientID = 2, DateCreated = new DateTime(2018, 1, 18), DeliveryDate = new DateTime(2018, 3, 18) },
+				new Model.Entities.Offer() { ID = 3, Active = true, Heading = "Ponuda 3", ClientID = 1, DateCreated = new DateTime(2018, 3, 18), DeliveryDate = new DateTime(2018, 5, 18) });
 
 			context.OfferNotes.AddOrUpdate(x => x.ID,
 				new Model.Entities.OfferNote() { ID = 1, Active = true, DateCreated = new DateTime(2018, 3, 18), OfferID = 1, Note = "Test note" },
@@ -34,9 +34,9 @@ namespace DigiOffers.DAL.Migrations
 				new Model.Entities.OfferNote() { ID = 3, Active = true, DateCreated = new DateTime(2018, 1, 18), OfferID = 2, Note = "Test note3" });
 
 			context.OfferSections.AddOrUpdate(x => x.ID,
-				new Model.Entities.OfferSection() { ID = 1, Active = true, DateCreated = new DateTime(2018, 3, 18), Name = "Sekcija1", OfferID = 1 },
-				new Model.Entities.OfferSection() { ID = 2, Active = true, DateCreated = new DateTime(2018, 3, 18), Name = "Sekcija2", OfferID = 1 },
-				new Model.Entities.OfferSection() { ID = 3, Active = true, DateCreated = new DateTime(2018, 1, 18), Name = "Sekcija3", OfferID = 2 });
+				new Model.Entities.OfferSection() { ID = 1, Guid = Guid.NewGuid(), Active = true, DateCreated = new DateTime(2018, 3, 18), Name = "Sekcija1", OfferID = 1 },
+				new Model.Entities.OfferSection() { ID = 2, Guid = Guid.NewGuid(), Active = true, DateCreated = new DateTime(2018, 3, 18), Name = "Sekcija2", OfferID = 1 },
+				new Model.Entities.OfferSection() { ID = 3, Guid = Guid.NewGuid(), Active = true, DateCreated = new DateTime(2018, 1, 18), Name = "Sekcija3", OfferID = 2 });
 
 			context.OfferItems.AddOrUpdate(x => x.ID,
 				new Model.Entities.OfferItem() { ID = 1, Active = true, DateCreated = new DateTime(2018, 3, 18), Name = "Item1", OfferSectionID = 1, Price = 100, Quantity = 1, UnitOfMeasurement = "m" },

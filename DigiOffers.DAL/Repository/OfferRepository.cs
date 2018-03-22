@@ -16,6 +16,7 @@ namespace DigiOffers.DAL.Repository
 			return DbContext.Offers
 				.Include(x => x.OfferSections)
 				.Include(x => x.OfferNotes)
+				.Where(x => x.Active)
 				.OrderByDescending(x => x.ID)
 				.ToList();
 		}
@@ -25,7 +26,7 @@ namespace DigiOffers.DAL.Repository
 			return DbContext.Offers
 				.Include(x => x.OfferSections)
 				.Include(x => x.OfferNotes)
-				.Where(x => x.ID == id)
+				.Where(x => x.ID == id && x.Active)
 				.FirstOrDefault();
 		}
 	}

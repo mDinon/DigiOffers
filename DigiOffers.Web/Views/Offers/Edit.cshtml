@@ -1,17 +1,17 @@
 ﻿@model DigiOffers.Model.DTO.OfferDto
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Izmjena ponude";
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    @Html.Partial("_CreateOrEdit")
+    @Html.Partial("_CreateOrEditNew")
 }
 
 <div>

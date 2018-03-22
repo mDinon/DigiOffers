@@ -1,0 +1,22 @@
+﻿@model IEnumerable<DigiOffers.Model.DTO.OfferSectionDto>
+
+
+@foreach (var item in Model)
+{
+    <div class="panel-group">
+        <div id="offerSections" style="margin-bottom:20px;" class="panel panel-primary col-md-12" data-toggle="collapse" data-target=@String.Format("#offerSectionsCollapse" + item.Guid) aria-expanded="false">
+            <div class="panel-heading row">
+                <div class="col-md-10"><h4 class="panel-title">@Html.DisplayFor(model => item.Name)</h4></div>
+                <div class="col-md-2">
+                    <span class="glyphicon glyphicon-chevron-right pull-right col-md-1"></span>
+                    <span class="glyphicon glyphicon-chevron-down pull-right col-md-1"></span>
+                </div>
+            </div>
+            <div id="@String.Format("offerSectionsCollapse" + item.Guid)" class="panel-collapse collapse">
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

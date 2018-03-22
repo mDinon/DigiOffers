@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<DigiOffers.Model.DTO.OfferDto>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Ponude";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj novu", "Create", null, new { @class = "btn btn-info"})
 </p>
 
 @Html.Partial("_IndexTable")

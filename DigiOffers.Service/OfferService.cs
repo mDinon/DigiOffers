@@ -42,16 +42,16 @@ namespace DigiOffers.Service
 
 		public void UpdateOffer(OfferDto offerDto)
 		{
-			Offer offer = Mapper.Map<OfferDto, Offer>(offerDto);
+			Offer offer = _offerRepository.Find(offerDto.ID);
 
-			_offerRepository.Update(offer);
+			_offerRepository.Update(Mapper.Map(offerDto, offer));
 		}
 
 		public void DeleteOffer(OfferDto offerDto)
 		{
-			Offer offer = Mapper.Map<OfferDto, Offer>(offerDto);
+			Offer offer = _offerRepository.Find(offerDto.ID);
 
-			_offerRepository.Delete(offer);
+			_offerRepository.Delete(Mapper.Map(offerDto, offer));
 		}
 	}
 }

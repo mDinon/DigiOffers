@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
 using DigiOffers.Model.DTO;
 using DigiOffers.Model.Entities;
+using DigiOffers.Web.Extensions;
 
 namespace DigiOffers.Web
 {
@@ -20,8 +17,12 @@ namespace DigiOffers.Web
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-			Mapper.Initialize(cfg => {
+			Mapper.Initialize(cfg =>
+			{
 				cfg.CreateMap<Offer, OfferDto>();
+				cfg.CreateMap<OfferDto, Offer>()
+					.Ignore(x => x.OfferSections)
+					.Ignore(x => x.OfferNotes);
 			});
 		}
 	}

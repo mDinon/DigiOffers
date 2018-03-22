@@ -52,6 +52,14 @@
     <Compile Include="Migrations\201803181437130_Initial.Designer.cs">
       <DependentUpon>201803181437130_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803221132397_OfferHeading.cs" />
+    <Compile Include="Migrations\201803221132397_OfferHeading.Designer.cs">
+      <DependentUpon>201803221132397_OfferHeading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803221841582_OfferSectionGuid.cs" />
+    <Compile Include="Migrations\201803221841582_OfferSectionGuid.Designer.cs">
+      <DependentUpon>201803221841582_OfferSectionGuid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ClientRepository.cs" />
@@ -80,6 +88,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803181437130_Initial.resx">
       <DependentUpon>201803181437130_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803221132397_OfferHeading.resx">
+      <DependentUpon>201803221132397_OfferHeading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803221841582_OfferSectionGuid.resx">
+      <DependentUpon>201803221841582_OfferSectionGuid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

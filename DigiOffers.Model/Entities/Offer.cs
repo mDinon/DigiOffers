@@ -11,6 +11,7 @@ namespace DigiOffers.Model.Entities
 		[ForeignKey("Client")]
 		public int ClientID { get; set; }
 		public DateTime DeliveryDate { get; set; }
+		public string Heading { get; set; }
 
 		public virtual Client Client { get; set; }
 		public virtual ICollection<OfferSection> OfferSections { get; set; }
