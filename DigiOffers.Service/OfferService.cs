@@ -34,7 +34,6 @@ namespace DigiOffers.Service
 		public OfferDto AddOffer(OfferDto offerDto)
 		{
 			Offer offer = Mapper.Map<OfferDto, Offer>(offerDto);
-
 			offer = _offerRepository.Add(offer);
 
 			return Mapper.Map<Offer, OfferDto>(offer);
@@ -42,16 +41,15 @@ namespace DigiOffers.Service
 
 		public void UpdateOffer(OfferDto offerDto)
 		{
-			Offer offer = _offerRepository.Find(offerDto.ID);
-
-			_offerRepository.Update(Mapper.Map(offerDto, offer));
+			_offerRepository.Update(Mapper.Map<OfferDto, Offer>(offerDto));
 		}
 
-		public void DeleteOffer(OfferDto offerDto)
+		public void DeleteOffer(int id)
 		{
-			Offer offer = _offerRepository.Find(offerDto.ID);
+			Offer offer = _offerRepository.Find(id);
 
-			_offerRepository.Delete(Mapper.Map(offerDto, offer));
+			if (offer != null)
+				_offerRepository.Delete(offer);
 		}
 	}
 }

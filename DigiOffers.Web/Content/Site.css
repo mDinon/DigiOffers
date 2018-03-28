@@ -43,10 +43,10 @@ textarea {
 	border-color: #2fa4e7 !important;
 }
 
-.panel[aria-expanded=true] .glyphicon-chevron-right {
+.panel-heading[aria-expanded=true] .glyphicon-chevron-right {
 	display: none;
 }
 
-.panel[aria-expanded=false] .glyphicon-chevron-down {
+.panel-heading[aria-expanded=false] .glyphicon-chevron-down {
 	display: none;
 }

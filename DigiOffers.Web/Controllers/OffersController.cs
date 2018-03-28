@@ -112,8 +112,7 @@ namespace DigiOffers.Web.Controllers
 		[ValidateAntiForgeryToken]
 		public ActionResult DeleteConfirmed(int id)
 		{
-			OfferDto offerDto = _offerService.FindOffer(id);
-			_offerService.DeleteOffer(offerDto);
+			_offerService.DeleteOffer(id);
 
 			return RedirectToAction("Index");
 		}

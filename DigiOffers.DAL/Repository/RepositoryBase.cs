@@ -57,8 +57,6 @@ namespace DigiOffers.DAL.Repository
 		public void Update(TEntity model)
 		{
 			model.DateModified = DateTime.Now;
-
-			DbContext.Set<TEntity>().Attach(model);
 			DbContext.Entry(model).State = EntityState.Modified;
 
 			Save();
@@ -66,9 +64,8 @@ namespace DigiOffers.DAL.Repository
 
 		public virtual void Delete(TEntity model)
 		{
-			model.Active = false;
 			model.DateModified = DateTime.Now;
-
+			model.Active = false;
 			DbContext.Entry(model).State = EntityState.Modified;
 
 			Save();

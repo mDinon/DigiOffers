@@ -26,17 +26,17 @@ namespace DigiOffers.Web
 						"~/Scripts/moment-with-locales.js",
 						"~/Scripts/bootstrap-datetimepicker.js"));
 
+			bundles.Add(new StyleBundle("~/Content/css").Include(
+						"~/Content/bootstrap.css",
+						"~/Content/bootstrap-datetimepicker.css",
+						"~/Content/site.css"));
+
 			bundles.Add(new ScriptBundle("~/bundles/globalize").Include(
 						"~/Scripts/cldr.js",
 						"~/Scripts/cldr/event.js",
 						"~/Scripts/cldr/supplemental.js",
 						"~/Scripts/globalize.js",
 						"~/Scripts/globalize/number.js"));
-
-			bundles.Add(new StyleBundle("~/Content/css").Include(
-						"~/Content/bootstrap.css",
-						"~/Content/bootstrap-datetimepicker.css",
-						"~/Content/site.css"));
 		}
 	}
 }
