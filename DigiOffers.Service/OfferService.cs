@@ -41,7 +41,8 @@ namespace DigiOffers.Service
 
 		public void UpdateOffer(OfferDto offerDto)
 		{
-			_offerRepository.Update(Mapper.Map<OfferDto, Offer>(offerDto));
+			Offer offer = _offerRepository.Find(offerDto.ID);
+			_offerRepository.Update(Mapper.Map(offerDto, offer));
 		}
 
 		public void DeleteOffer(int id)
