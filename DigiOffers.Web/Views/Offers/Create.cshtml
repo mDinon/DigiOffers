@@ -7,10 +7,10 @@
 <h2>@ViewBag.Title</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     @Html.Partial("_CreateOrEditNew")
 }
 
@@ -18,3 +18,6 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+@section scripts{
+    <script src="~/Scripts/Offers/table-config.js"></script>
+}

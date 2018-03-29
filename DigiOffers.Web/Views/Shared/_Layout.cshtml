@@ -19,8 +19,7 @@
                 @Html.ActionLink("Ponude", "Index", "Offer", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+                <ul class="nav navbar-nav"></ul>
             </div>
         </div>
     </div>
@@ -36,6 +35,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/globalize")
+    @Scripts.Render("~/bundles/datatables")
     @Html.Partial("_UICultureSetup")
     @RenderSection("scripts", required: false)
 </body>

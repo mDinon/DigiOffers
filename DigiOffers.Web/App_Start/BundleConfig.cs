@@ -29,6 +29,7 @@ namespace DigiOffers.Web
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 						"~/Content/bootstrap.css",
 						"~/Content/bootstrap-datetimepicker.css",
+						"~/Content/DataTables/css/dataTables.bootstrap.min.css",
 						"~/Content/site.css"));
 
 			bundles.Add(new ScriptBundle("~/bundles/globalize").Include(
@@ -37,6 +38,11 @@ namespace DigiOffers.Web
 						"~/Scripts/cldr/supplemental.js",
 						"~/Scripts/globalize.js",
 						"~/Scripts/globalize/number.js"));
+
+			bundles.Add(new ScriptBundle("~/bundles/datatables").Include(
+						"~/Scripts/DataTables/jquery.dataTables.min.js",
+						"~/Scripts/DataTables/dataTables.bootstrap.min.js"
+						));
 		}
 	}
 }

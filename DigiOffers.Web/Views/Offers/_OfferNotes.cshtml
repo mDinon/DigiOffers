@@ -1,19 +1,21 @@
 ﻿@model IEnumerable<DigiOffers.Model.DTO.OfferNoteDto>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Note)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table id="tblNotes" class="table table-striped table-bordered tblOffers">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
