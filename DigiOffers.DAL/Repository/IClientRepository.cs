@@ -6,5 +6,6 @@ namespace DigiOffers.DAL.Repository
 	public interface IClientRepository : IRepositoryBase<Client>
 	{
 		List<Client> GetList();
+		Client Find(Client client);
 	}
 }

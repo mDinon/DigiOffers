@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201803221841582_OfferSectionGuid.Designer.cs">
       <DependentUpon>201803221841582_OfferSectionGuid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803291626375_ClientTitle.cs" />
+    <Compile Include="Migrations\201803291626375_ClientTitle.Designer.cs">
+      <DependentUpon>201803291626375_ClientTitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ClientRepository.cs" />
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803221841582_OfferSectionGuid.resx">
       <DependentUpon>201803221841582_OfferSectionGuid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803291626375_ClientTitle.resx">
+      <DependentUpon>201803291626375_ClientTitle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

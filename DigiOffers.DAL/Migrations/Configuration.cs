@@ -1,9 +1,7 @@
 namespace DigiOffers.DAL.Migrations
 {
 	using System;
-	using System.Data.Entity;
 	using System.Data.Entity.Migrations;
-	using System.Linq;
 
 	internal sealed class Configuration : DbMigrationsConfiguration<DigiOffers.DAL.DigiOfferDbContext>
 	{
@@ -20,8 +18,8 @@ namespace DigiOffers.DAL.Migrations
 			//  to avoid creating duplicate seed data.
 
 			context.Clients.AddOrUpdate(x => x.ID,
-				new Model.Entities.Client() { Active = true, DateCreated = new DateTime(2018, 3, 18), Email = "test.test@test.com", FirstName = "Pero", LastName = "Periæ", ID = 1, PhoneNumber = "013265478", Sex = "M" },
-				new Model.Entities.Client() { Active = true, DateCreated = new DateTime(2018, 1, 18), Email = "mail.mail@mail.com", FirstName = "Iva", LastName = "Iviæ", ID = 2, PhoneNumber = "0915487678", Sex = "M" });
+				new Model.Entities.Client() { Active = true, DateCreated = new DateTime(2018, 3, 18), Email = "test.test@test.com", FirstName = "Pero", LastName = "Periæ", ID = 1, PhoneNumber = "013265478", Title = "g." },
+				new Model.Entities.Client() { Active = true, DateCreated = new DateTime(2018, 1, 18), Email = "mail.mail@mail.com", FirstName = "Iva", LastName = "Iviæ", ID = 2, PhoneNumber = "0915487678", Title = "gða." });
 
 			context.Offers.AddOrUpdate(x => x.ID,
 				new Model.Entities.Offer() { ID = 1, Active = true, Heading = "Ponuda 1", ClientID = 1, DateCreated = new DateTime(2018, 3, 18), DeliveryDate = new DateTime(2018, 3, 18) },

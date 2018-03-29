@@ -13,7 +13,6 @@
         </th>
         <th></th>
         <th></th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -27,9 +26,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td style="max-width:5px!important">
-                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-pencil text-info" })
             </td>
             <td style="max-width:5px!important">
                 @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "glyphicon glyphicon-list-alt text-info" })

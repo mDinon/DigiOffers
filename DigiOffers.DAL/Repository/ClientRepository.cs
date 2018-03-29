@@ -27,5 +27,13 @@ namespace DigiOffers.DAL.Repository
 				.Where(x => x.ID == id && x.Active)
 				.FirstOrDefault();
 		}
+
+		public Client Find(Client client)
+		{
+			return DbContext.Clients
+				.Include(x => x.Offers)
+				.Where(x => x.Email == client.Email && x.FirstName == client.FirstName && x.LastName == client.LastName && x.PhoneNumber == client.PhoneNumber && x.Title == client.Title && x.Active)
+				.FirstOrDefault();
+		}
 	}
 }

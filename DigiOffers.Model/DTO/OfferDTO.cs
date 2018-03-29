@@ -17,9 +17,15 @@ namespace DigiOffers.Model.DTO
 		[Required]
 		[Display(Name = "Prezime")]
 		public string ClientLastName { get; set; }
-		[Display(Name = "Datum")]
+		[Display(Name = "Email")]
+		public string ClientEmail { get; set; }
+		[Display(Name = "Telefon")]
+		public string ClientPhoneNumber { get; set; }
+		[Display(Name = "Titula")]
+		public string ClientTitle { get; set; }
+		[Display(Name = "Datum dostave")]
 		public DateTime DeliveryDate { get; set; }
-		[Display(Name = "Naziv")]
+		[Display(Name = "Naslov ponude")]
 		public string Heading { get; set; }
 		public List<OfferNoteDto> OfferNotes { get; set; }
 		public List<OfferSectionDto> OfferSections { get; set; }

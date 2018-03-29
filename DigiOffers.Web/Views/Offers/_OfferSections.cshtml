@@ -5,7 +5,7 @@
 {
     <div class="panel-group">
         <div id="offerSections" style="margin-bottom:20px;" class="panel panel-primary col-md-12">
-            <div class="panel-heading row" data-toggle="collapse" data-target=@String.Format("#offerSectionsCollapse" + item.Guid) aria-expanded="false">
+            <div class="panel-heading row" style="cursor:pointer" data-toggle="collapse" data-target=@String.Format("#offerSectionsCollapse" + item.Guid) aria-expanded="false">
                 <div class="col-md-10"><h4 class="panel-title">@Html.DisplayFor(model => item.Name)</h4></div>
                 <div class="col-md-2">
                     <span class="glyphicon glyphicon-chevron-right pull-right col-md-1"></span>
@@ -14,6 +14,7 @@
             </div>
             <div id="@String.Format("offerSectionsCollapse" + item.Guid)" class="panel-collapse collapse">
                 <div class="panel-body">
+                    @Html.Partial("_OfferItems", item != null ? item.OfferItems : new List<DigiOffers.Model.DTO.OfferItemDto>())
                 </div>
             </div>
         </div>

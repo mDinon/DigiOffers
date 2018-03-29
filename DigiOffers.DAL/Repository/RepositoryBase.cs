@@ -28,7 +28,7 @@ namespace DigiOffers.DAL.Repository
 			}
 			catch (Exception ex)
 			{
-				LogException(ex);
+				//TODO: save to file system
 			}
 		}
 
@@ -41,6 +41,8 @@ namespace DigiOffers.DAL.Repository
 				Name = ex.Message,
 				Description = ex.StackTrace
 			});
+
+			Save();
 		}
 
 		public TEntity Add(TEntity model)
