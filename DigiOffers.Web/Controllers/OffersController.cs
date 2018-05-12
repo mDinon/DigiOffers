@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using DigiOffers.Model.DTO;
 using DigiOffers.Service;
 using Ninject;
+using System.Linq;
 
 namespace DigiOffers.Web.Controllers
 {
@@ -80,9 +81,11 @@ namespace DigiOffers.Web.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(OfferDto offerDto)
+		public ActionResult Edit(OfferDto offerDto) //TODO: exclude id from nested objects
 		{
-			bool isOk = TryValidateModel(offerDto);
+			ModelState.Remove("OfferNoteDto.ID");
+			bool isOk = TryUpdateModel(offerDto);
+			var errors = ModelState.Values.Where(x => x.Errors.Count == 1).ToList();
 
 			if (isOk && ModelState.IsValid)
 			{

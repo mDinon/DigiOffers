@@ -27,9 +27,9 @@ namespace DigiOffers.DAL.Migrations
 				new Model.Entities.Offer() { ID = 3, Active = true, Heading = "Ponuda 3", ClientID = 1, DateCreated = new DateTime(2018, 3, 18), DeliveryDate = new DateTime(2018, 5, 18) });
 
 			context.OfferNotes.AddOrUpdate(x => x.ID,
-				new Model.Entities.OfferNote() { ID = 1, Active = true, DateCreated = new DateTime(2018, 3, 18), OfferID = 1, Note = "Test note" },
-				new Model.Entities.OfferNote() { ID = 2, Active = true, DateCreated = new DateTime(2018, 3, 18), OfferID = 1, Note = "Test note2" },
-				new Model.Entities.OfferNote() { ID = 3, Active = true, DateCreated = new DateTime(2018, 1, 18), OfferID = 2, Note = "Test note3" });
+				new Model.Entities.OfferNote() { ID = 1, Guid = Guid.NewGuid(), Active = true, DateCreated = new DateTime(2018, 3, 18), OfferID = 1, Note = "Test note" },
+				new Model.Entities.OfferNote() { ID = 2, Guid = Guid.NewGuid(), Active = true, DateCreated = new DateTime(2018, 3, 18), OfferID = 1, Note = "Test note2" },
+				new Model.Entities.OfferNote() { ID = 3, Guid = Guid.NewGuid(), Active = true, DateCreated = new DateTime(2018, 1, 18), OfferID = 2, Note = "Test note3" });
 
 			context.OfferSections.AddOrUpdate(x => x.ID,
 				new Model.Entities.OfferSection() { ID = 1, Guid = Guid.NewGuid(), Active = true, DateCreated = new DateTime(2018, 3, 18), Name = "Sekcija1", OfferID = 1 },

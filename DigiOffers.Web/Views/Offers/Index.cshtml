@@ -13,24 +13,3 @@
 <div>
     @Html.Partial("_IndexTable")
 </div>
-
-@section scripts{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#tblOffers').DataTable({
-                order: [[2, 'desc']],
-                language: {
-                    "search" : "Pretraži:",
-                    "lengthMenu": "Prikaži _MENU_ zapisa po stranici",
-                    "zeroRecords": "Nema zapisa",
-                    "info": "Strana _PAGE_ od _PAGES_",
-                    "infoEmpty": "Nema zapisa",
-                    "paginate": {
-                        "previous": "Prethodna",
-                        "next" : "Sljedeća"
-                    }
-                }
-            });
-        });
-    </script>
-}

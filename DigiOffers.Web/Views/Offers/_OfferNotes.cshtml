@@ -1,6 +1,42 @@
 ﻿@model IEnumerable<DigiOffers.Model.DTO.OfferNoteDto>
 
-<table id="tblNotes" class="table table-striped table-bordered tblOffers">
+
+
+@{
+    var grid = new WebGrid(Model, canPage: false, canSort: false,
+    selectionFieldName: "selectedRow", ajaxUpdateContainerId: "notesGridContent");}
+
+<div style="text-align:right; margin-bottom:5px;">
+    <button type="button" id="btnNewNote" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+</div>
+
+<div id="notesGridContent">
+    @grid.GetHtml(tableStyle: "table table-striped table-bordered editable",
+                      headerStyle: "header",
+                      alternatingRowStyle: "alt",
+                      selectedRowStyle: "select",
+                      htmlAttributes: new { id = "tblNotes", style="" },
+                        columns: grid.Columns(
+                                                grid.Column(columnName: "Note", header: "Napomena", format: @<text>
+                                                        <span class="display-mode">@item.Note</span>
+                                                        <input id="@item.Guid" value="@item.Note" type="text" class="edit-mode form-control note" onclick="event.stopPropagation()" onfocusout="changeToDisplay($(this))" />
+                                                        <input style="display:none" value="@item.ID" type="text" class="form-control id" />
+                                                        <input style="display:none" value="@item.Guid" type="text" class="form-control guid" />
+                                                </text>),
+                                                        grid.Column("", canSort: false, style: "action-columns", format: @<text>
+                                                            <a class="glyphicon glyphicon-trash text-info" onclick="deleteRow($(this))" style="cursor:pointer;"></a>
+                                                        </text>)
+                                                              )
+                                    )
+</div>
+
+
+
+
+
+
+
+@*<table id="tblNotes" class="table table-striped table-bordered tblOffers">
     <thead>
         <tr>
             <th>
@@ -18,4 +54,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@

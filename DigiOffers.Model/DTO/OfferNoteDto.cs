@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DigiOffers.Model.DTO
 {
 	public class OfferNoteDto
 	{
 		public int ID { get; set; }
+		[Required]
+		public Guid Guid { get; set; }
 		public bool Active { get; set; }
 		[Required]
 		[Display(Name = "Napomena")]
