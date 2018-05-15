@@ -1,9 +1,10 @@
-﻿using System.Net;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 using DigiOffers.Model.DTO;
 using DigiOffers.Service;
 using Ninject;
-using System.Linq;
 
 namespace DigiOffers.Web.Controllers
 {
@@ -116,6 +117,26 @@ namespace DigiOffers.Web.Controllers
 			_offerService.DeleteOffer(id);
 
 			return RedirectToAction("Index");
+		}
+
+		[HttpGet]
+		public ActionResult GetSectionPartial(int? offerID)
+		{
+			if (offerID == null || offerID == 0)
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+			List<OfferSectionDto> model = new List<OfferSectionDto>
+			{
+				new OfferSectionDto
+				{
+					Active = true,
+					Guid = Guid.NewGuid(),
+					OfferItems = new List<OfferItemDto>(),
+					OfferID = offerID.Value
+				}
+			};
+
+			return PartialView("_OfferSections", model);
 		}
 	}
 }

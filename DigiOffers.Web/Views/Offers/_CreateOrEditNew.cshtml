@@ -3,6 +3,10 @@
 <div class="form-horizontal">
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.ClientID)
+    @Html.HiddenFor(model => model.Active)
+    @Html.HiddenFor(model => model.DateCreated)
     <div class="form-group">
         @Html.LabelFor(model => model.Heading, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -12,10 +16,6 @@
     </div>
 
     <div id="clientInfo">
-        @Html.HiddenFor(model => model.ID)
-        @Html.HiddenFor(model => model.ClientID)
-        @Html.HiddenFor(model => model.Active)
-        @Html.HiddenFor(model => model.DateCreated)
         <div class="form-group">
             @Html.LabelFor(model => model.ClientFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -62,6 +62,9 @@
     </div>
 
     <div id="offerSections">
+        <div style="margin-bottom:20px;">
+            @Ajax.ActionLink("Dodaj sekciju", "GetSectionPartial", "Offers", new { offerID = Model.ID}, new AjaxOptions { InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "offerSections" }, new { @class="btn btn-default"})
+        </div>
         @Html.Partial("_OfferSections", Model != null ? Model.OfferSections : new List<DigiOffers.Model.DTO.OfferSectionDto>())
     </div>
 

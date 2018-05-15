@@ -19,9 +19,7 @@
                         columns: grid.Columns(
                                                 grid.Column(columnName: "Note", header: "Napomena", format: @<text>
                                                         <span class="display-mode">@item.Note</span>
-                                                        <input value="@item.Note" type="text" class="edit-mode form-control note" onclick="event.stopPropagation()" onfocusout="changeToDisplay($(this))" />
-                                                        <input style="display:none" value="@item.ID" type="text" class="form-control id" />
-                                                        <input style="display:none" value="@item.Guid" type="text" class="form-control guid" />
+                                                        <input value="@item.Note" type="text" class="edit-mode form-control note" onclick="event.stopPropagation()" onfocusout="changeToDisplay($(this))" data-id="@item.ID" data-guid="@item.Guid"/>
                                                 </text>),
                                                         grid.Column("", canSort: false, style: "action-columns", format: @<text>
                                                             <a class="glyphicon glyphicon-trash text-info" onclick="deleteRow($(this))" style="cursor:pointer;"></a>

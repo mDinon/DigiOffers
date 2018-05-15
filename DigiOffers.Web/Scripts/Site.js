@@ -16,9 +16,9 @@
 		
 		for (var i = 0; i < rows.length; i++) {
 			var note = $(rows[i]).find('.note');
-			var noteId = $(rows[i]).find('.id');
-			var noteGuid = $(rows[i]).find('.guid');
-			offer.OfferNotes.push(new OfferNoteDto(noteId.val(), true, noteGuid.val(), offer.ClientID, note.val(), offer.ID));
+			var noteId = note.data('id');
+			var noteGuid = note.data('guid');
+			offer.OfferNotes.push(new OfferNoteDto(noteId, true, noteGuid, offer.ClientID, note.val(), offer.ID));
 		}
 
 		submitOffer(offer);
@@ -36,7 +36,7 @@
 })
 
 function createNoteRow(guid) {
-	return "<tr><td><span class='display-mode' style='display: none;'></span><input value='' type='text' class='edit-mode form-control note' style='' onclick='event.stopPropagation()' onfocusout=changeToDisplay($(this))><input style='display: none' value='' type='text' class='form-control id'><input style='display: none' type='text' class='form-control guid' value='" + guid + "'></td><td class='action-columns'><a class = 'glyphicon glyphicon-trash text-info' onclick='deleteRow($(this))' style='cursor: pointer;'></a></td></tr>";
+	return "<tr><td><span class='display-mode' style='display: none;'></span><input value='' type='text' class='edit-mode form-control note' style='' onclick='event.stopPropagation()' onfocusout=changeToDisplay($(this)) data-id='' data-guid=" + guid + "></td><td class='action-columns'><a class = 'glyphicon glyphicon-trash text-info' onclick='deleteRow($(this))' style='cursor: pointer;'></a></td></tr>";
 }
 
 function createGuid() {
@@ -64,16 +64,15 @@ function deleteRow(attr) {
 function submitOffer(offer) {
 	var form = $('#offerForm');
 	var token = $('input[name="__RequestVerificationToken"]', form).val();
-	var url = window.location.pathname;
 	$.ajax({
 		type: 'POST',
 		data: {
 			__RequestVerificationToken: token,
 			offerDto: offer
 		},
-		url: url,
+		url: form.attr('action'),
 		success: function (response) {
-			alert('ok');
+			window.location.href = '/Offers/Index';
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);
