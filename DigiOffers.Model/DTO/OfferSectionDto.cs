@@ -6,7 +6,7 @@ namespace DigiOffers.Model.DTO
 {
 	public class OfferSectionDto
 	{
-		public int ID { get; set; }
+		public int? ID { get; set; }
 		[Required]
 		public Guid Guid { get; set; }
 		public bool Active { get; set; }

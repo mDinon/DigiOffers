@@ -1,8 +1,6 @@
 ﻿$(function () {
 	$('.edit-mode').hide();
 	$('.editable td').on('dblclick', function () {
-		//var tr = $(this).parents('tr:first');
-		//tr.find('.edit-mode, .display-mode').toggle();
 		changeToEdit($(this));
 	});
 
@@ -10,14 +8,11 @@
 		$('.edit-mode').hide();
 		$('.display-mode').show();
 	});
-	//$(".edit-mode").click(function (e) {
-	//	e.stopPropagation();
-	//});
 
 	$('#btnSave').click(function (e) {
 		e.preventDefault();
 		var offer = new OfferDto($('#ID').val(), $('#Active').val(), $('#DateCreated').val(), $('#ClientID').val(), $('#ClientFirstName').val(), $('#ClientLastName').val(), $('#ClientEmail').val(), $('#ClientPhoneNumber').val(), $('#ClientTitle').val(), $('#DeliveryDate').val(), $('#Heading').val());
-		var rows = $('#tblNotes').find('tbody:first').find('tr');//.find('.edit-mode');
+		var rows = $('#tblNotes').find('tbody:first').find('tr');
 		
 		for (var i = 0; i < rows.length; i++) {
 			var note = $(rows[i]).find('.note');
@@ -28,11 +23,6 @@
 
 		submitOffer(offer);
 	});
-
-	//$('.edit-mode').focusout(function (e) {
-	//	var td = $(this).parents('td:first');
-	//	td.find('.display-mode').text($(this).val());
-	//});
 
 	$('#btnNewNote').click(function (e) {
 		var guid = createGuid();
@@ -46,7 +36,7 @@
 })
 
 function createNoteRow(guid) {
-	return "<tr><td><span class='display-mode' style='display: none;'></span><input id='" + guid + "' value='' type='text' class='edit-mode form-control note' style='' onclick='event.stopPropagation()' onfocusout=changeToDisplay($(this))><input style='display: none' value='' type='text' class='form-control id'><input style='display: none' type='text' class='form-control guid' value='" + guid + "'></td><td class='action-columns'><a class = 'glyphicon glyphicon-trash text-info' onclick='deleteRow($(this))' style='cursor: pointer;'></a></td></tr>";
+	return "<tr><td><span class='display-mode' style='display: none;'></span><input value='' type='text' class='edit-mode form-control note' style='' onclick='event.stopPropagation()' onfocusout=changeToDisplay($(this))><input style='display: none' value='' type='text' class='form-control id'><input style='display: none' type='text' class='form-control guid' value='" + guid + "'></td><td class='action-columns'><a class = 'glyphicon glyphicon-trash text-info' onclick='deleteRow($(this))' style='cursor: pointer;'></a></td></tr>";
 }
 
 function createGuid() {
@@ -74,15 +64,14 @@ function deleteRow(attr) {
 function submitOffer(offer) {
 	var form = $('#offerForm');
 	var token = $('input[name="__RequestVerificationToken"]', form).val();
+	var url = window.location.pathname;
 	$.ajax({
 		type: 'POST',
 		data: {
 			__RequestVerificationToken: token,
 			offerDto: offer
-		}, 
-		url: '/Offers/Edit/1',
-		//contentType: 'application/json',
-		//dataType: 'json',
+		},
+		url: url,
 		success: function (response) {
 			alert('ok');
 		},
@@ -124,21 +113,29 @@ class OfferNoteDto {
 
 }
 
-	//$('.save-book').on('click', function () {
-	//    var tr = $(this).parents('tr:first');
-	//    var bookId = $(this).prop('id');
-	//    var title = tr.find('#Title').val();
-	//    var authorId = tr.find('#AuthorId').val();
-	//    var categoryId = tr.find('#CategoryId').val();
-	//    var isbn = tr.find('#ISBN').val();
-	//    $.post(
-	//        '/EditBook',
-	//        { BookId: bookId, Title: title, AuthorId: authorId, CategoryId: categoryId, ISBN: isbn },
-	//        function (book) {
-	//            tr.find('#title').text(book.Title);
-	//            tr.find('#authorname').text(book.AuthorName);
-	//            tr.find('#category').text(book.Category);
-	//            tr.find('#isbn').text(book.ISBN);
-	//        }, "json");
-	//    tr.find('.edit-mode, .display-mode').toggle();
-	//});
+class OfferSectionDto {
+
+	constructor(ID, Active, Guid, ClientID, Note, OfferID, OfferItems) {
+		this.ID = ID;
+		this.Active = Active;
+		this.Guid = Guid;
+		this.Name = Name;
+		this.OfferID = OfferID;
+		this.OfferItems = OfferItems;
+	}
+
+}
+
+class OfferItemDto {
+
+	constructor(ID, Active, Name, UnitOfMeasurement, Quantity, Price, OfferSectionID) {
+		this.ID = ID;
+		this.Active = Active;
+		this.Name = Name;
+		this.UnitOfMeasurement = UnitOfMeasurement;
+		this.Quantity = Quantity;
+		this.Price = Price;
+		this.OfferSectionID = OfferSectionID;
+	}
+
+}

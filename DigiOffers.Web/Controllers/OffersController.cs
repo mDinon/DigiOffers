@@ -81,11 +81,9 @@ namespace DigiOffers.Web.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(OfferDto offerDto) //TODO: exclude id from nested objects
+		public ActionResult Edit(OfferDto offerDto)
 		{
-			ModelState.Remove("OfferNoteDto.ID");
 			bool isOk = TryUpdateModel(offerDto);
-			var errors = ModelState.Values.Where(x => x.Errors.Count == 1).ToList();
 
 			if (isOk && ModelState.IsValid)
 			{

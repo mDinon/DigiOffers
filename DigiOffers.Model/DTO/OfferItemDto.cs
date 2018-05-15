@@ -4,7 +4,7 @@ namespace DigiOffers.Model.DTO
 {
 	public class OfferItemDto
 	{
-		public int ID { get; set; }
+		public int? ID { get; set; }
 		public bool Active { get; set; }
 		[Required]
 		[Display(Name = "Naziv")]

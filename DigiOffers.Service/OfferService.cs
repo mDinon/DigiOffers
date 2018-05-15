@@ -88,18 +88,18 @@ namespace DigiOffers.Service
 			//TODO: stored procedure that will take xml and process offer
 			foreach (OfferNoteDto noteDto in offerDto.OfferNotes)
 			{
-				OfferNote note = _offerNoteRepository.Find(noteDto.ID);
+				OfferNote note = _offerNoteRepository.Find(noteDto.ID.Value);
 				_offerNoteRepository.Update(Mapper.Map(noteDto, note));
 			}
 
 			foreach (OfferSectionDto sectionDto in offerDto.OfferSections)
 			{
-				OfferSection section = _offerSectionRepository.Find(sectionDto.ID);
+				OfferSection section = _offerSectionRepository.Find(sectionDto.ID.Value);
 				_offerSectionRepository.Update(Mapper.Map(sectionDto, section));
 
 				foreach (OfferItemDto itemDto in sectionDto.OfferItems)
 				{
-					OfferItem item = _offerItemRepository.Find(itemDto.ID);
+					OfferItem item = _offerItemRepository.Find(itemDto.ID.Value);
 					_offerItemRepository.Add(Mapper.Map(itemDto, item));
 				}
 			}

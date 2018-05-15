@@ -7,7 +7,7 @@
 <h2>@ViewBag.Title</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "offerForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -17,3 +17,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section scripts{
+    <script src="~/Scripts/Site.js"></script>
+}
